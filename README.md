@@ -436,3 +436,7 @@ src/reviewpilot/
 └── report/          # result.json / report.md / trace
 ```
 
+## 九、其他文档
+## 📚 项目完整文档
+- [产品需求文档（PRD）](./docs/PRD.md)
+- [竞品分析手册](./docs/competitor-analysis.md)
