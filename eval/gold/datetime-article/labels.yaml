@@ -1,0 +1,213 @@
+case: datetime-article
+article: article.md
+claims:
+- id: datetime-article-001
+  quote: '`date(year, month, day)` 构造日期。'
+  char_start: 20
+  char_end: 50
+  human_verdict: supported
+  note: ''
+- id: datetime-article-002
+  quote: '`datetime(...)` 构造日期时间，可以包含时分秒。'
+  char_start: 52
+  char_end: 83
+  human_verdict: supported
+  note: ''
+- id: datetime-article-003
+  quote: '`date.today()` 返回本地日期。'
+  char_start: 85
+  char_end: 107
+  human_verdict: supported
+  note: ''
+- id: datetime-article-004
+  quote: '`datetime.now()` 不带参数时返回本地 naive 时间。'
+  char_start: 109
+  char_end: 145
+  human_verdict: supported
+  note: ''
+- id: datetime-article-005
+  quote: '`datetime.now(timezone.utc)` 返回带 UTC 时区的 aware 时间。'
+  char_start: 147
+  char_end: 197
+  human_verdict: supported
+  note: ''
+- id: datetime-article-006
+  quote: '`datetime.utcnow()` 返回 naive UTC 时间，并在 Python 3.12 起被弃用。'
+  char_start: 199
+  char_end: 255
+  human_verdict: supported
+  note: ''
+- id: datetime-article-007
+  quote: '`datetime.fromtimestamp(timestamp, tz=None)` 可以接受时区参数。'
+  char_start: 257
+  char_end: 311
+  human_verdict: supported
+  note: ''
+- id: datetime-article-008
+  quote: '`datetime.timestamp()` 返回 POSIX 时间戳。'
+  char_start: 313
+  char_end: 349
+  human_verdict: supported
+  note: ''
+- id: datetime-article-009
+  quote: '`timezone.utc` 是 UTC 时区对象。'
+  char_start: 351
+  char_end: 377
+  human_verdict: supported
+  note: ''
+- id: datetime-article-010
+  quote: '`datetime.isoformat()` 返回 ISO 8601 字符串。'
+  char_start: 379
+  char_end: 418
+  human_verdict: supported
+  note: ''
+- id: datetime-article-011
+  quote: '`datetime.isoformat()` 的默认分隔符是 `T`。'
+  char_start: 420
+  char_end: 455
+  human_verdict: supported
+  note: ''
+- id: datetime-article-012
+  quote: '`datetime.strftime()` 按格式字符串格式化。'
+  char_start: 457
+  char_end: 489
+  human_verdict: supported
+  note: ''
+- id: datetime-article-013
+  quote: '`datetime.strptime()` 的第一个参数是日期字符串，第二个是格式。'
+  char_start: 491
+  char_end: 533
+  human_verdict: supported
+  note: ''
+- id: datetime-article-014
+  quote: '`datetime.combine()` 合并日期和时间。'
+  char_start: 535
+  char_end: 564
+  human_verdict: supported
+  note: ''
+- id: datetime-article-015
+  quote: '`timedelta.total_seconds()` 返回总秒数。'
+  char_start: 566
+  char_end: 600
+  human_verdict: supported
+  note: ''
+- id: datetime-article-016
+  quote: '`datetime` 是 `date` 的子类。'
+  char_start: 602
+  char_end: 626
+  human_verdict: supported
+  note: ''
+- id: datetime-article-017
+  quote: '`date` 和 `datetime` 对象都是不可变的。'
+  char_start: 628
+  char_end: 657
+  human_verdict: supported
+  note: ''
+- id: datetime-article-018
+  quote: naive 与 aware 的 `datetime` 对象混用比较会抛出 `TypeError`。
+  char_start: 659
+  char_end: 708
+  human_verdict: supported
+  note: ''
+- id: datetime-article-019
+  quote: '`datetime.now()` 不带参数时返回带 UTC 时区的 aware 时间。'
+  char_start: 710
+  char_end: 753
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-020
+  quote: '`datetime.utcnow()` 返回带 UTC 时区的 aware 时间。'
+  char_start: 755
+  char_end: 796
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-021
+  quote: '`date.today()` 返回 UTC 日期。'
+  char_start: 798
+  char_end: 823
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-022
+  quote: '`datetime` 是 `date` 的父类。'
+  char_start: 825
+  char_end: 849
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-023
+  quote: '`datetime.isoformat()` 默认使用空格作为日期和时间分隔符。'
+  char_start: 851
+  char_end: 891
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-024
+  quote: '`datetime.strptime()` 的第一个参数是格式字符串，第二个是日期字符串。'
+  char_start: 893
+  char_end: 938
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-025
+  quote: '`datetime` 对象是可变的，可以直接修改 `year`。'
+  char_start: 940
+  char_end: 972
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-026
+  quote: '`datetime.timestamp()` 对 naive 对象按 UTC 计算。'
+  char_start: 974
+  char_end: 1016
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-027
+  quote: '`datetime.fromtimestamp()` 的 `tz` 参数默认是 UTC。'
+  char_start: 1018
+  char_end: 1062
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-028
+  quote: '`date` 对象可以包含时分秒。'
+  char_start: 1064
+  char_end: 1081
+  human_verdict: conflict
+  note: ''
+- id: datetime-article-029
+  quote: '`datetime.UTC` 别名是在 Python 3.13 中新增的。'
+  char_start: 1083
+  char_end: 1120
+  human_verdict: uncertain
+  note: ''
+- id: datetime-article-030
+  quote: '`datetime.fromisoformat()` 支持所有 ISO 8601 格式。'
+  char_start: 1122
+  char_end: 1166
+  human_verdict: uncertain
+  note: ''
+- id: datetime-article-031
+  quote: '`datetime.strptime()` 比 `dateutil.parser` 快。'
+  char_start: 1168
+  char_end: 1212
+  human_verdict: uncertain
+  note: ''
+- id: datetime-article-032
+  quote: '`datetime` 的 `fold` 属性用于处理夏令时。'
+  char_start: 1214
+  char_end: 1244
+  human_verdict: uncertain
+  note: ''
+- id: datetime-article-033
+  quote: Windows 上 `datetime` 的时区数据库来自 IANA。
+  char_start: 1246
+  char_end: 1281
+  human_verdict: uncertain
+  note: ''
+- id: datetime-article-034
+  quote: 我认为 `datetime` 模块的 API 设计很糟糕。
+  char_start: 1283
+  char_end: 1312
+  human_verdict: non_claim
+  note: ''
+- id: datetime-article-035
+  quote: '`datetime` 是 Python 中最令人困惑的模块。'
+  char_start: 1314
+  char_end: 1344
+  human_verdict: non_claim
+  note: ''

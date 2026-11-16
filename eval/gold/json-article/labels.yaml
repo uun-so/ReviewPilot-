@@ -1,0 +1,183 @@
+case: json-article
+article: article.md
+claims:
+- id: json-article-001
+  quote: '`json.dumps` 返回一个 `str`。'
+  char_start: 20
+  char_end: 44
+  human_verdict: supported
+  note: ''
+- id: json-article-002
+  quote: '`json.dump` 把 JSON 写入文件对象并返回 `None`。'
+  char_start: 46
+  char_end: 82
+  human_verdict: supported
+  note: ''
+- id: json-article-003
+  quote: '`ensure_ascii` 的默认值是 `True`。'
+  char_start: 84
+  char_end: 112
+  human_verdict: supported
+  note: ''
+- id: json-article-004
+  quote: 当 `ensure_ascii` 为 `True` 时，非 ASCII 字符会被转义为 `\uXXXX`。
+  char_start: 114
+  char_end: 167
+  human_verdict: supported
+  note: ''
+- id: json-article-005
+  quote: 把 `ensure_ascii` 设为 `False` 可以保留非 ASCII 字符的原文。
+  char_start: 169
+  char_end: 215
+  human_verdict: supported
+  note: ''
+- id: json-article-006
+  quote: '`sort_keys` 的默认值是 `False`。'
+  char_start: 217
+  char_end: 243
+  human_verdict: supported
+  note: ''
+- id: json-article-007
+  quote: 把 `sort_keys` 设为 `True` 时，字典键会按键排序。
+  char_start: 245
+  char_end: 280
+  human_verdict: supported
+  note: ''
+- id: json-article-008
+  quote: '`indent` 的默认值是 `None`。'
+  char_start: 282
+  char_end: 304
+  human_verdict: supported
+  note: ''
+- id: json-article-009
+  quote: 当 `indent` 是整数时，每一级缩进使用对应数量的空格。
+  char_start: 306
+  char_end: 337
+  human_verdict: supported
+  note: ''
+- id: json-article-010
+  quote: '`json.dumps` 的 `indent` 参数默认是 2。'
+  char_start: 339
+  char_end: 371
+  human_verdict: conflict
+  note: ''
+- id: json-article-011
+  quote: '`json.dumps` 默认使用 `separators=('', '', '': '')`。'
+  char_start: 373
+  char_end: 417
+  human_verdict: supported
+  note: ''
+- id: json-article-012
+  quote: '当 `indent` 不是 `None` 时，默认的项分隔符是 `'',''`，键分隔符是 `'': ''`。'
+  char_start: 419
+  char_end: 470
+  human_verdict: supported
+  note: ''
+- id: json-article-013
+  quote: '`skipkeys` 的默认值是 `False`。'
+  char_start: 472
+  char_end: 497
+  human_verdict: supported
+  note: ''
+- id: json-article-014
+  quote: '`allow_nan` 的默认值是 `True`。'
+  char_start: 499
+  char_end: 524
+  human_verdict: supported
+  note: ''
+- id: json-article-015
+  quote: 把 `allow_nan` 设为 `False` 会在遇到 `NaN` 时抛出 `ValueError`。
+  char_start: 526
+  char_end: 579
+  human_verdict: supported
+  note: ''
+- id: json-article-016
+  quote: '`default` 参数用于处理无法直接序列化的对象。'
+  char_start: 581
+  char_end: 608
+  human_verdict: supported
+  note: ''
+- id: json-article-017
+  quote: '`check_circular` 的默认值是 `True`。'
+  char_start: 610
+  char_end: 640
+  human_verdict: supported
+  note: ''
+- id: json-article-018
+  quote: 循环引用在 `check_circular` 为 `True` 时会抛出 `ValueError`。
+  char_start: 642
+  char_end: 692
+  human_verdict: supported
+  note: ''
+- id: json-article-019
+  quote: '`json.loads` 可以接受 `str`、`bytes` 或 `bytearray`。'
+  char_start: 694
+  char_end: 740
+  human_verdict: supported
+  note: ''
+- id: json-article-020
+  quote: '`json.load` 从文件对象读取 JSON 并返回 Python 对象。'
+  char_start: 742
+  char_end: 781
+  human_verdict: supported
+  note: ''
+- id: json-article-021
+  quote: '`json.JSONDecodeError` 是 `ValueError` 的子类。'
+  char_start: 783
+  char_end: 825
+  human_verdict: supported
+  note: ''
+- id: json-article-022
+  quote: '`object_hook` 会收到每个解码后的 JSON 对象。'
+  char_start: 827
+  char_end: 859
+  human_verdict: supported
+  note: ''
+- id: json-article-023
+  quote: '`parse_float` 默认使用 `float` 构造浮点数。'
+  char_start: 861
+  char_end: 894
+  human_verdict: supported
+  note: ''
+- id: json-article-024
+  quote: '`parse_int` 默认使用 `int` 构造整数。'
+  char_start: 896
+  char_end: 924
+  human_verdict: supported
+  note: ''
+- id: json-article-025
+  quote: CPython 的 `json` 模块优先使用 C 加速器 `_json`。
+  char_start: 926
+  char_end: 964
+  human_verdict: supported
+  note: ''
+- id: json-article-026
+  quote: '`json.dumps` 的 `sort_keys` 参数默认为 `True`。'
+  char_start: 966
+  char_end: 1006
+  human_verdict: conflict
+  note: ''
+- id: json-article-027
+  quote: '`json.dumps` 可以直接序列化 `datetime` 对象，无需 `default`。'
+  char_start: 1008
+  char_end: 1056
+  human_verdict: conflict
+  note: ''
+- id: json-article-028
+  quote: '`json` 模块支持在 JSON 文本中写注释。'
+  char_start: 1058
+  char_end: 1083
+  human_verdict: uncertain
+  note: ''
+- id: json-article-029
+  quote: '`json.dumps` 在 CPython 3.13 中的速度比 `orjson` 快。'
+  char_start: 1085
+  char_end: 1130
+  human_verdict: uncertain
+  note: ''
+- id: json-article-030
+  quote: 我认为 `json` 是 Python 中最好的序列化格式。
+  char_start: 1132
+  char_end: 1162
+  human_verdict: non_claim
+  note: ''

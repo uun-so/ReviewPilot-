@@ -1,0 +1,213 @@
+case: argparse-article
+article: article.md
+claims:
+- id: argparse-article-001
+  quote: '`ArgumentParser` 创建解析器。'
+  char_start: 20
+  char_end: 43
+  human_verdict: supported
+  note: ''
+- id: argparse-article-002
+  quote: '`add_argument()` 添加参数。'
+  char_start: 45
+  char_end: 67
+  human_verdict: supported
+  note: ''
+- id: argparse-article-003
+  quote: '`action=''store_true''` 默认 `False`。'
+  char_start: 69
+  char_end: 102
+  human_verdict: supported
+  note: ''
+- id: argparse-article-004
+  quote: '`action=''store_false''` 默认 `True`。'
+  char_start: 104
+  char_end: 137
+  human_verdict: supported
+  note: ''
+- id: argparse-article-005
+  quote: '`action=''append''` 把值追加到列表。'
+  char_start: 139
+  char_end: 165
+  human_verdict: supported
+  note: ''
+- id: argparse-article-006
+  quote: '`action=''count''` 统计出现次数。'
+  char_start: 167
+  char_end: 191
+  human_verdict: supported
+  note: ''
+- id: argparse-article-007
+  quote: '`nargs=''+''` 表示至少一个参数。'
+  char_start: 193
+  char_end: 214
+  human_verdict: supported
+  note: ''
+- id: argparse-article-008
+  quote: '`nargs=''*''` 表示零个或多个参数。'
+  char_start: 216
+  char_end: 238
+  human_verdict: supported
+  note: ''
+- id: argparse-article-009
+  quote: '`required=True` 表示选项必填。'
+  char_start: 240
+  char_end: 263
+  human_verdict: supported
+  note: ''
+- id: argparse-article-010
+  quote: '`type=int` 会把参数转换为整数。'
+  char_start: 265
+  char_end: 286
+  human_verdict: supported
+  note: ''
+- id: argparse-article-011
+  quote: '`choices` 限制参数取值。'
+  char_start: 288
+  char_end: 305
+  human_verdict: supported
+  note: ''
+- id: argparse-article-012
+  quote: '`default` 设置默认值。'
+  char_start: 307
+  char_end: 323
+  human_verdict: supported
+  note: ''
+- id: argparse-article-013
+  quote: '`dest` 指定 `Namespace` 中的属性名。'
+  char_start: 325
+  char_end: 353
+  human_verdict: supported
+  note: ''
+- id: argparse-article-014
+  quote: '`parse_args()` 返回 `Namespace`。'
+  char_start: 355
+  char_end: 385
+  human_verdict: supported
+  note: ''
+- id: argparse-article-015
+  quote: '`parse_known_args()` 返回 namespace 和剩余参数。'
+  char_start: 387
+  char_end: 427
+  human_verdict: supported
+  note: ''
+- id: argparse-article-016
+  quote: '`add_subparsers()` 添加子命令。'
+  char_start: 429
+  char_end: 454
+  human_verdict: supported
+  note: ''
+- id: argparse-article-017
+  quote: '`-h/--help` 在默认配置下自动添加。'
+  char_start: 456
+  char_end: 479
+  human_verdict: supported
+  note: ''
+- id: argparse-article-018
+  quote: 参数错误时 `argparse` 以状态码 2 退出。
+  char_start: 481
+  char_end: 508
+  human_verdict: supported
+  note: ''
+- id: argparse-article-019
+  quote: '`action=''store_true''` 默认 `True`。'
+  char_start: 510
+  char_end: 542
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-020
+  quote: '`action=''store_false''` 默认 `False`。'
+  char_start: 544
+  char_end: 578
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-021
+  quote: '`nargs=''+''` 允许零个参数。'
+  char_start: 580
+  char_end: 599
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-022
+  quote: '`nargs=''*''` 要求至少一个参数。'
+  char_start: 601
+  char_end: 622
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-023
+  quote: '`required=True` 只能用于位置参数。'
+  char_start: 624
+  char_end: 649
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-024
+  quote: '`parse_args()` 返回字典。'
+  char_start: 651
+  char_end: 671
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-025
+  quote: 参数错误时退出码是 1。
+  char_start: 673
+  char_end: 685
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-026
+  quote: '`action=''count''` 未指定时默认值是 1。'
+  char_start: 687
+  char_end: 715
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-027
+  quote: '`allow_abbrev` 默认为 `False`。'
+  char_start: 717
+  char_end: 744
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-028
+  quote: '`-h/--help` 需要手动添加。'
+  char_start: 746
+  char_end: 765
+  human_verdict: conflict
+  note: ''
+- id: argparse-article-029
+  quote: '`argparse` 在 Python 3.13 中支持从 TOML 配置文件读取参数。'
+  char_start: 767
+  char_end: 811
+  human_verdict: uncertain
+  note: ''
+- id: argparse-article-030
+  quote: '`argparse` 比 `click` 更快。'
+  char_start: 813
+  char_end: 837
+  human_verdict: uncertain
+  note: ''
+- id: argparse-article-031
+  quote: '`argparse` 默认支持 shell 补全。'
+  char_start: 839
+  char_end: 864
+  human_verdict: uncertain
+  note: ''
+- id: argparse-article-032
+  quote: '`exit_on_error=False` 会抛出 `ArgumentError`。'
+  char_start: 866
+  char_end: 908
+  human_verdict: uncertain
+  note: ''
+- id: argparse-article-033
+  quote: '`argparse` 默认输出彩色帮助。'
+  char_start: 910
+  char_end: 930
+  human_verdict: uncertain
+  note: ''
+- id: argparse-article-034
+  quote: 我认为 `argparse` 的 API 比 `click` 更直观。
+  char_start: 932
+  char_end: 967
+  human_verdict: non_claim
+  note: ''
+- id: argparse-article-035
+  quote: '`argparse` 是 Python 中最好的命令行库。'
+  char_start: 969
+  char_end: 998
+  human_verdict: non_claim
+  note: ''

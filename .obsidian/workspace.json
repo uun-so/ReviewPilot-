@@ -1,0 +1,222 @@
+{
+  "main": {
+    "id": "3ef2f3349373d99e",
+    "type": "split",
+    "children": [
+      {
+        "id": "6599169ae44d0609",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9900e59bd2bc0b0c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/competitor-analysis.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "competitor-analysis"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "807f606887cc497c",
+    "type": "split",
+    "children": [
+      {
+        "id": "e88139599b998b8d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "18608fedafc6536f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "a241a2721a289db2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "72384d8d794dfed3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "028ba3644491d630",
+    "type": "split",
+    "children": [
+      {
+        "id": "cefe1addb8938231",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "04c7729e9cdba2bf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "742ef1fb3b101d1c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "d28bb017914f7c97",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "8bbb4451268dc37b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "dedbd9ef4953b050",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "9900e59bd2bc0b0c",
+  "lastOpenFiles": [
+    "eval/gold/README.md",
+    "docs/eval/v0.1.0-2026-11-15.md",
+    "docs/competitor-analysis.md",
+    "docs/eval/v0.1-2026-11-15.md",
+    "docs/PRD.md",
+    "docs/competitor-analysis",
+    "README.md",
+    "docs/eval/m3-2026-11-15.md",
+    "eval/gold/labeling-sheet.md",
+    "eval/gold/json-article/article.md",
+    "runs/20261114T091640Z-81cd94f7/report.md",
+    "scripts/__pycache__/label_gold.cpython-313.pyc",
+    "scripts/__pycache__/prepare_gold_labels.cpython-313.pyc",
+    "scripts/__pycache__",
+    "scripts/prepare_gold_labels.py.tmp.4320.dd33ddaf35d2",
+    "scripts/label_gold.py",
+    "scripts/label_gold.py.tmp.4320.6baad24abe58",
+    "README.md.tmp.4320.c415b93c56d0",
+    "README.md.tmp.4320.03c50badf5d6",
+    "tests/__pycache__/test_eval.cpython-313-pytest-9.2.0.pyc",
+    "eval/gold/http-article/article.md",
+    "runs/20261114T091820Z-81cd94f7/report.md",
+    "runs/20261114T091820Z-81cd94f7/demo-article.md",
+    "runs/20261114T091640Z-81cd94f7/demo-article.md",
+    "examples/demo-article.md",
+    "kb/demo/README.md",
+    "kb/demo/sources/json.md",
+    "kb/demo/sources/http-client.md"
+  ]
+}

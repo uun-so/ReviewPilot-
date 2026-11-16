@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-11-15T03:14:45+00:00",
+  "kb": {
+    "name": "python-stdlib-demo",
+    "version": "2026.11",
+    "manifest_sha256": "897a424a83e700e155074abdc57e0718372226e1a9dfd8088d8e260ee7c6566d"
+  },
+  "gate": {
+    "passed": true,
+    "checks": {
+      "no_false_support": true,
+      "no_ungraded_support": true,
+      "supported_agreement>=0.95": true,
+      "conflict_recall>=0.80": true,
+      "evidence_exactness==1.0": true
+    },
+    "reasons": []
+  },
+  "aggregate": {
+    "gold_total": 60,
+    "system_total": 58,
+    "matched": 58,
+    "false_support": 0,
+    "ungraded_support": 0,
+    "missed_checkable": 0,
+    "matched_checkable": 58,
+    "checkable_total": 58,
+    "supported_total": 43,
+    "supported_agreed": 43,
+    "conflict_total": 11,
+    "conflict_hit": 11,
+    "evidence_total": 58,
+    "evidence_valid": 58,
+    "supported_agreement": 1.0,
+    "conflict_recall": 1.0,
+    "coverage": 1.0,
+    "evidence_exactness": 1.0
+  },
+  "cases": [
+    {
+      "case": "http-article",
+      "gold_total": 30,
+      "system_total": 29,
+      "matched": 29,
+      "false_support": 0,
+      "ungraded_support": 0,
+      "missed_checkable": 0,
+      "matched_checkable": 29,
+      "checkable_total": 29,
+      "supported_total": 19,
+      "supported_agreed": 19,
+      "supported_agreement": 1.0,
+      "conflict_total": 8,
+      "conflict_hit": 8,
+      "conflict_recall": 1.0,
+      "coverage": 1.0,
+      "evidence_total": 29,
+      "evidence_valid": 29,
+      "evidence_exactness": 1.0,
+      "mismatches": [],
+      "run_dir": "eval\\runs\\20261115T031445Z\\runs\\20261115T031506Z-7c11622f"
+    },
+    {
+      "case": "json-article",
+      "gold_total": 30,
+      "system_total": 29,
+      "matched": 29,
+      "false_support": 0,
+      "ungraded_support": 0,
+      "missed_checkable": 0,
+      "matched_checkable": 29,
+      "checkable_total": 29,
+      "supported_total": 24,
+      "supported_agreed": 24,
+      "supported_agreement": 1.0,
+      "conflict_total": 3,
+      "conflict_hit": 3,
+      "conflict_recall": 1.0,
+      "coverage": 1.0,
+      "evidence_total": 29,
+      "evidence_valid": 29,
+      "evidence_exactness": 1.0,
+      "mismatches": [],
+      "run_dir": "eval\\runs\\20261115T031445Z\\runs\\20261115T031527Z-ed048270"
+    }
+  ]
+}

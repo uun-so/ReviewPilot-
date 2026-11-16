@@ -1,0 +1,184 @@
+case: http-article
+article: article.md
+claims:
+- id: http-article-001
+  quote: '`HTTPConnection(host, port=None, timeout=..., source_address=None, blocksize=8192)`
+    创建一个连接。'
+  char_start: 20
+  char_end: 111
+  human_verdict: supported
+  note: ''
+- id: http-article-002
+  quote: '`timeout` 未指定时，`HTTPConnection` 使用 `socket.getdefaulttimeout()` 的全局默认值。'
+  char_start: 113
+  char_end: 184
+  human_verdict: supported
+  note: ''
+- id: http-article-003
+  quote: '`timeout` 的单位是秒。'
+  char_start: 186
+  char_end: 202
+  human_verdict: supported
+  note: ''
+- id: http-article-004
+  quote: '`timeout` 的单位是毫秒。'
+  char_start: 204
+  char_end: 221
+  human_verdict: conflict
+  note: ''
+- id: http-article-005
+  quote: '`blocksize` 的默认值是 8192。'
+  char_start: 223
+  char_end: 246
+  human_verdict: supported
+  note: ''
+- id: http-article-006
+  quote: '`source_address` 是一个 `(host, port)` 元组，用于指定客户端的源地址。'
+  char_start: 248
+  char_end: 299
+  human_verdict: supported
+  note: ''
+- id: http-article-007
+  quote: '`request(method, url, body=None, headers={})` 发送请求。'
+  char_start: 301
+  char_end: 352
+  human_verdict: supported
+  note: ''
+- id: http-article-008
+  quote: '`request` 方法直接返回 `HTTPResponse` 对象。'
+  char_start: 354
+  char_end: 389
+  human_verdict: conflict
+  note: ''
+- id: http-article-009
+  quote: '`getresponse()` 返回 `HTTPResponse` 对象。'
+  char_start: 391
+  char_end: 428
+  human_verdict: supported
+  note: ''
+- id: http-article-010
+  quote: '`HTTPResponse.status` 是一个整数状态码。'
+  char_start: 430
+  char_end: 461
+  human_verdict: supported
+  note: ''
+- id: http-article-011
+  quote: '`HTTPResponse.status` 是一个字符串。'
+  char_start: 463
+  char_end: 492
+  human_verdict: conflict
+  note: ''
+- id: http-article-012
+  quote: '`HTTPResponse.reason` 是状态原因短语。'
+  char_start: 494
+  char_end: 524
+  human_verdict: supported
+  note: ''
+- id: http-article-013
+  quote: '`HTTPResponse.version` 在 HTTP/1.1 时是 11。'
+  char_start: 526
+  char_end: 566
+  human_verdict: supported
+  note: ''
+- id: http-article-014
+  quote: '`HTTPResponse.getheader(name)` 返回指定响应头的值。'
+  char_start: 568
+  char_end: 609
+  human_verdict: supported
+  note: ''
+- id: http-article-015
+  quote: '`HTTPResponse.getheaders()` 返回一个字典。'
+  char_start: 611
+  char_end: 646
+  human_verdict: conflict
+  note: ''
+- id: http-article-016
+  quote: '`HTTPResponse.read()` 返回响应体，类型是 `str`。'
+  char_start: 648
+  char_end: 686
+  human_verdict: conflict
+  note: ''
+- id: http-article-017
+  quote: '`HTTPResponse.read()` 返回响应体，类型是 `bytes`。'
+  char_start: 688
+  char_end: 728
+  human_verdict: supported
+  note: ''
+- id: http-article-018
+  quote: '`HTTPConnection.close()` 关闭连接。'
+  char_start: 730
+  char_end: 760
+  human_verdict: supported
+  note: ''
+- id: http-article-019
+  quote: '`HTTPSConnection` 是 `HTTPConnection` 的子类，使用 TLS。'
+  char_start: 762
+  char_end: 810
+  human_verdict: supported
+  note: ''
+- id: http-article-020
+  quote: '`RemoteDisconnected` 在远端关闭连接且没有响应时抛出。'
+  char_start: 812
+  char_end: 849
+  human_verdict: supported
+  note: ''
+- id: http-article-021
+  quote: '`HTTPException` 是 `http.client` 异常的基类。'
+  char_start: 851
+  char_end: 889
+  human_verdict: supported
+  note: ''
+- id: http-article-022
+  quote: '`http.client` 会自动维护连接池。'
+  char_start: 891
+  char_end: 914
+  human_verdict: conflict
+  note: ''
+- id: http-article-023
+  quote: '`http.client` 支持 HTTP/2。'
+  char_start: 916
+  char_end: 940
+  human_verdict: conflict
+  note: ''
+- id: http-article-024
+  quote: '`HTTPConnection.putrequest()` 发送请求行。'
+  char_start: 942
+  char_end: 978
+  human_verdict: supported
+  note: ''
+- id: http-article-025
+  quote: '`HTTPConnection.set_debuglevel()` 设置调试级别。'
+  char_start: 980
+  char_end: 1021
+  human_verdict: supported
+  note: ''
+- id: http-article-026
+  quote: '`http.client` 是 Python 标准库的一部分。'
+  char_start: 1023
+  char_end: 1054
+  human_verdict: supported
+  note: ''
+- id: http-article-027
+  quote: '`http.client` 的默认 User-Agent 是 `Python-urllib/3.13`。'
+  char_start: 1056
+  char_end: 1108
+  human_verdict: uncertain
+  note: ''
+- id: http-article-028
+  quote: '`HTTPConnection` 的默认端口是 8080。'
+  char_start: 1110
+  char_end: 1139
+  human_verdict: uncertain
+  note: ''
+- id: http-article-029
+  quote: '`HTTPConnection` 会自动重试失败的请求。'
+  char_start: 1141
+  char_end: 1169
+  human_verdict: conflict
+  note: ''
+- id: http-article-030
+  quote: 我认为 `http.client` 比 `requests` 更好用。
+  char_start: 1171
+  char_end: 1206
+  human_verdict: non_claim
+  note: ''

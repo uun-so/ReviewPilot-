@@ -1,0 +1,15 @@
+# Copy to reviewpilot.yaml and adjust. Paths are relative to this file.
+kb: kb/demo
+sensitivity: public          # public | internal | confidential
+concurrency: 4               # 1..64；低余额账户的并发上限可能只有 5
+
+models:
+  extraction: deepseek-flash
+  query: deepseek-flash
+  judge: deepseek-v4-pro
+  verifier: deepseek-v4-pro
+  judge_effort: none         # none | low | high | max
+  verifier_effort: low
+
+report:
+  annotated: true

@@ -1,0 +1,47 @@
+name: python-stdlib-demo
+version: "2026.11.1"
+effective_date: 2026-11-15
+sensitivity: public
+
+sources:
+  - path: sources/http-client.md
+    title: "http.client 核心行为"
+    format: markdown
+    url: https://docs.python.org/3/library/http.client.html
+    retrieved_at: 2026-11-14
+    version: "3.13"
+
+  - path: sources/json.md
+    title: "json 编码与解码"
+    format: markdown
+    url: https://docs.python.org/3/library/json.html
+    retrieved_at: 2026-11-14
+    version: "3.13"
+
+  - path: sources/pathlib.md
+    title: "pathlib 路径操作"
+    format: markdown
+    url: https://docs.python.org/3/library/pathlib.html
+    retrieved_at: 2026-11-15
+    version: "3.13"
+
+  - path: sources/datetime.md
+    title: "datetime 日期与时间"
+    format: markdown
+    url: https://docs.python.org/3/library/datetime.html
+    retrieved_at: 2026-11-15
+    version: "3.13"
+
+  - path: sources/logging.md
+    title: "logging 日志"
+    format: markdown
+    url: https://docs.python.org/3/library/logging.html
+    retrieved_at: 2026-11-15
+    version: "3.13"
+
+  - path: sources/argparse.md
+    title: "argparse 命令行解析"
+    format: markdown
+    url: https://docs.python.org/3/library/argparse.html
+    retrieved_at: 2026-11-15
+    version: "3.13"

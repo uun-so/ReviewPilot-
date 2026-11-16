@@ -1,0 +1,213 @@
+case: logging-article
+article: article.md
+claims:
+- id: logging-article-001
+  quote: '`getLogger(name)` 对相同 name 返回同一实例。'
+  char_start: 16
+  char_end: 50
+  human_verdict: supported
+  note: ''
+- id: logging-article-002
+  quote: '`basicConfig()` 配置根 logger。'
+  char_start: 52
+  char_end: 79
+  human_verdict: supported
+  note: ''
+- id: logging-article-003
+  quote: 根 logger 的默认级别是 `WARNING`。
+  char_start: 81
+  char_end: 107
+  human_verdict: supported
+  note: ''
+- id: logging-article-004
+  quote: '`DEBUG=10`、`INFO=20`、`WARNING=30`、`ERROR=40`、`CRITICAL=50`。'
+  char_start: 109
+  char_end: 168
+  human_verdict: supported
+  note: ''
+- id: logging-article-005
+  quote: '`setLevel()` 设置 logger 级别。'
+  char_start: 170
+  char_end: 196
+  human_verdict: supported
+  note: ''
+- id: logging-article-006
+  quote: '`addHandler()` 添加 handler。'
+  char_start: 198
+  char_end: 224
+  human_verdict: supported
+  note: ''
+- id: logging-article-007
+  quote: '`propagate` 默认为 `True`。'
+  char_start: 226
+  char_end: 249
+  human_verdict: supported
+  note: ''
+- id: logging-article-008
+  quote: '`StreamHandler` 默认写入 `stderr`。'
+  char_start: 251
+  char_end: 281
+  human_verdict: supported
+  note: ''
+- id: logging-article-009
+  quote: '`FileHandler` 默认使用追加模式 `''a''`。'
+  char_start: 283
+  char_end: 312
+  human_verdict: supported
+  note: ''
+- id: logging-article-010
+  quote: '`RotatingFileHandler` 按文件大小轮转。'
+  char_start: 314
+  char_end: 344
+  human_verdict: supported
+  note: ''
+- id: logging-article-011
+  quote: '`TimedRotatingFileHandler` 按时间轮转。'
+  char_start: 346
+  char_end: 379
+  human_verdict: supported
+  note: ''
+- id: logging-article-012
+  quote: '`Formatter` 默认使用 `%` 风格。'
+  char_start: 381
+  char_end: 405
+  human_verdict: supported
+  note: ''
+- id: logging-article-013
+  quote: '`logger.exception()` 记录 `ERROR` 级别并带上异常信息。'
+  char_start: 407
+  char_end: 449
+  human_verdict: supported
+  note: ''
+- id: logging-article-014
+  quote: '`getLevelName(level)` 返回级别名称。'
+  char_start: 451
+  char_end: 480
+  human_verdict: supported
+  note: ''
+- id: logging-article-015
+  quote: '`disable(CRITICAL)` 禁用所有日志调用。'
+  char_start: 482
+  char_end: 511
+  human_verdict: supported
+  note: ''
+- id: logging-article-016
+  quote: '`logging.root` 是根 logger。'
+  char_start: 513
+  char_end: 538
+  human_verdict: supported
+  note: ''
+- id: logging-article-017
+  quote: '`dictConfig()` 从字典配置日志。'
+  char_start: 540
+  char_end: 563
+  human_verdict: supported
+  note: ''
+- id: logging-article-018
+  quote: '`fileConfig()` 从配置文件配置日志。'
+  char_start: 565
+  char_end: 590
+  human_verdict: supported
+  note: ''
+- id: logging-article-019
+  quote: '`getLogger(name)` 每次调用都返回新实例。'
+  char_start: 592
+  char_end: 621
+  human_verdict: conflict
+  note: ''
+- id: logging-article-020
+  quote: '`basicConfig()` 的默认级别是 `DEBUG`。'
+  char_start: 623
+  char_end: 654
+  human_verdict: conflict
+  note: ''
+- id: logging-article-021
+  quote: '`StreamHandler` 默认写入 `stdout`。'
+  char_start: 656
+  char_end: 686
+  human_verdict: conflict
+  note: ''
+- id: logging-article-022
+  quote: '`FileHandler` 默认使用覆盖模式 `''w''`。'
+  char_start: 688
+  char_end: 717
+  human_verdict: conflict
+  note: ''
+- id: logging-article-023
+  quote: '`propagate` 默认为 `False`。'
+  char_start: 719
+  char_end: 743
+  human_verdict: conflict
+  note: ''
+- id: logging-article-024
+  quote: '`logger.exception()` 记录 `INFO` 级别。'
+  char_start: 745
+  char_end: 779
+  human_verdict: conflict
+  note: ''
+- id: logging-article-025
+  quote: '`disable(INFO)` 禁用所有级别的日志。'
+  char_start: 781
+  char_end: 807
+  human_verdict: conflict
+  note: ''
+- id: logging-article-026
+  quote: '`Formatter` 默认使用 `{}` 风格。'
+  char_start: 809
+  char_end: 834
+  human_verdict: conflict
+  note: ''
+- id: logging-article-027
+  quote: '`basicConfig()` 在根 logger 已有 handler 时仍会重新配置。'
+  char_start: 836
+  char_end: 881
+  human_verdict: conflict
+  note: ''
+- id: logging-article-028
+  quote: 根 logger 的默认级别是 `INFO`。
+  char_start: 883
+  char_end: 906
+  human_verdict: conflict
+  note: ''
+- id: logging-article-029
+  quote: '`logging.getLevelNamesMapping()` 是在 Python 3.13 中新增的。'
+  char_start: 908
+  char_end: 961
+  human_verdict: uncertain
+  note: ''
+- id: logging-article-030
+  quote: '`logging` 默认启用异步 handler。'
+  char_start: 963
+  char_end: 988
+  human_verdict: uncertain
+  note: ''
+- id: logging-article-031
+  quote: '`logging` 比 `loguru` 快。'
+  char_start: 990
+  char_end: 1013
+  human_verdict: uncertain
+  note: ''
+- id: logging-article-032
+  quote: '`logging` 默认输出 JSON 格式。'
+  char_start: 1015
+  char_end: 1038
+  human_verdict: uncertain
+  note: ''
+- id: logging-article-033
+  quote: '`FileHandler` 默认使用 UTF-8 编码。'
+  char_start: 1040
+  char_end: 1068
+  human_verdict: uncertain
+  note: ''
+- id: logging-article-034
+  quote: 我认为 `logging` 的配置 API 太复杂。
+  char_start: 1070
+  char_end: 1096
+  human_verdict: non_claim
+  note: ''
+- id: logging-article-035
+  quote: '`logging` 是 Python 中最难配置的模块。'
+  char_start: 1098
+  char_end: 1126
+  human_verdict: non_claim
+  note: ''
