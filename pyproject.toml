@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "reviewpilot"
-version = "0.1.0"
+version = "0.2.2"
 description = "Evidence-gated claim verification for AI-written technical articles"
 readme = "README.md"
 requires-python = ">=3.13"
@@ -29,17 +29,25 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+api = [
+    "fastapi>=0.163,<1",
+    "uvicorn[standard]>=0.54,<1",
+]
 dev = [
     "pytest>=9,<10",
     "respx>=0.23,<1",
     "build>=1.2,<2",
+    "fastapi>=0.163,<1",
+    "uvicorn[standard]>=0.54,<1",
+    "httpx>=0.28,<1",
 ]
 
 [project.scripts]
 reviewpilot = "reviewpilot.cli:run"
+reviewpilot-api = "reviewpilot_api.main:run"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/reviewpilot"]
+packages = ["src/reviewpilot", "src/reviewpilot_api"]
 
 [tool.hatch.build.targets.sdist]
 include = [
@@ -48,10 +56,12 @@ include = [
     "/docs",
     "/examples",
     "/scripts",
+    "/web",
     "/README.md",
     "/CHANGELOG.md",
     "/pyproject.toml",
 ]
+exclude = ["/web/node_modules", "/web/dist", "/web/*.tsbuildinfo"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

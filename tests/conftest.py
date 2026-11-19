@@ -5,7 +5,8 @@ import pytest
 
 @pytest.fixture
 def kb_dir(tmp_path: Path) -> Path:
-    (tmp_path / "sources").mkdir()
+    root = tmp_path / "kb"
+    (root / "sources").mkdir(parents=True)
     markdown = (
         "# HTTP\n\n"
         "HTTPConnection timeout 是超时时间；默认值为 30 秒。\n\n"
@@ -16,7 +17,7 @@ def kb_dir(tmp_path: Path) -> Path:
         "|---|---|\n"
         "| timeout | 30 |\n"
     )
-    (tmp_path / "sources" / "http.md").write_text(markdown, encoding="utf-8")
+    (root / "sources" / "http.md").write_text(markdown, encoding="utf-8")
 
     html = (
         "<html><head><title>JSON</title></head><body>"
@@ -25,7 +26,7 @@ def kb_dir(tmp_path: Path) -> Path:
         "<ul><li>indent 控制缩进。</li></ul>"
         "</body></html>"
     )
-    (tmp_path / "sources" / "json.html").write_text(html, encoding="utf-8")
+    (root / "sources" / "json.html").write_text(html, encoding="utf-8")
 
     manifest = (
         'name: test-kb\n'
@@ -42,5 +43,5 @@ def kb_dir(tmp_path: Path) -> Path:
         '    format: html\n'
         '    version: "3.13"\n'
     )
-    (tmp_path / "manifest.yaml").write_text(manifest, encoding="utf-8")
-    return tmp_path
+    (root / "manifest.yaml").write_text(manifest, encoding="utf-8")
+    return root

@@ -15,6 +15,10 @@ htmlcov/
 
 .env
 runs/
+node_modules/
+web/dist/
+web/.vite/
+*.tsbuildinfo
 kb/**/index.sqlite
 kb/**/index.sqlite-*
 .DS_Store

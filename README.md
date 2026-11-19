@@ -2,7 +2,7 @@
 
 > 输入一篇 AI 写的技术文章，输出逐句核验结论：每条可判定的主张，要么有知识库证据支撑，要么明确标成存疑。不替模型猜，也不让模型凭内部知识给结论。
 
-**当前状态：v0.1.0。** `kb index` / `kb inspect` / `check` / `eval` 均可用：manifest 校验、Markdown/HTML/TXT 解析、结构感知切块、SQLite FTS5 + jieba 索引、主张抽取与逐字锚定、单跳证据判定、三道闸门、`result.json` / `report.md` / `trace.jsonl`。M3 的 60 条与 v0.1 的 200 条评测均通过；wheel/sdist 打包与全新 venv 验证已完成。结果见下文与 [v0.1 评测记录](docs/eval/v0.1.0-2026-11-15.md)。
+**当前状态：v0.2.2。** CLI（`kb index` / `kb inspect` / `check` / `eval`）与 Web API / React + TypeScript 前端均可用：manifest 校验、Markdown/HTML/TXT 解析、结构感知切块、SQLite FTS5 + jieba 索引、主张抽取与逐字锚定、单跳证据判定、三道闸门、`result.json` / `report.md` / `trace.jsonl`。M3 的 60 条与 v0.1 的 200 条评测均通过；v2 的 FastAPI 后端与前端联调、wheel/sdist 打包与全新 venv 验证已完成。结果见下文与 [v0.1 评测记录](docs/eval/v0.1.0-2026-11-15.md)。
 
 ## 它保证什么
 
@@ -60,11 +60,11 @@ article.md
 | 模型 | DeepSeek Responses API（openai SDK） | `deepseek-v4-pro` 判定/校验，`deepseek-flash` 抽取/检索式 |
 | 测试 | pytest + respx | 单元测试不触网；respx mock HTTP |
 
-### v2（迭代方向，不进入 v1 依赖）
+### v2（0.2.2，已完成）
 
-- FastAPI 后端 + TypeScript 前端，复用 `reviewpilot.core` 判定引擎。
-- 按评测需要引入本地 embedding / 向量库，与 BM25 做混合召回。
-- 按需引入 LangChain，仅用于编排，不改变证据闸门与闭世界约束。
+- FastAPI 后端 + React / TypeScript / Vite 前端，复用同一判定引擎。
+- 单进程作业队列、KB 白名单、默认只监听 `127.0.0.1`。
+- 按需引入本地 embedding / 向量库与 LangChain 仍未启用，保持 BM25 + 证据闸门不变。
 
 ## 快速开始
 
@@ -95,7 +95,9 @@ pytest
 ### 安装方式
 
 - 从仓库开发安装：`pip install -e ".[dev]"`
-- 从构建好的 wheel 安装：`pip install dist/reviewpilot-0.1.0-py3-none-any.whl`
+- 带 API 依赖：`pip install -e ".[dev,api]"`
+- 从构建好的 wheel 安装：`pip install dist/reviewpilot-0.2.2-py3-none-any.whl`
+- wheel + API：`pip install "dist/reviewpilot-0.2.2-py3-none-any.whl[api]"`
 
 ### v0.1 目标用法
 
@@ -115,20 +117,20 @@ reviewpilot eval --gold eval/gold --kb kb/demo
 ```bash
 pip install -e ".[dev]"   # dev 依赖包含 build
 python -m build
-# dist/reviewpilot-0.1.0-py3-none-any.whl
-# dist/reviewpilot-0.1.0.tar.gz
+# dist/reviewpilot-0.2.2-py3-none-any.whl
+# dist/reviewpilot-0.2.2.tar.gz
 ```
 
 全新 venv 验证 wheel：
 
 ```powershell
 python -m venv .venv-m4
-.venv-m4\Scripts\python -m pip install dist\reviewpilot-0.1.0-py3-none-any.whl
+.venv-m4\Scripts\python -m pip install dist\reviewpilot-0.2.2-py3-none-any.whl
 .venv-m4\Scripts\reviewpilot --version
 .venv-m4\Scripts\reviewpilot --help
 ```
 
-已在全新 venv 验证：wheel 安装后 `--version` / `--help` / `kb index` / `kb inspect` 可用；源码 `pip install -e ".[dev]"` 后 42 项测试通过。
+已在全新 venv 验证：0.2.2 wheel + `[api]` 安装后 `reviewpilot --version`、`reviewpilot-api`、`/api/health` 和静态首页可用；源码 `pip install -e ".[dev]"` 后 50 项 Python 测试通过；前端 `npm --prefix web run test` 的 1 项回归测试通过。真实 API 端到端也已跑通（提交 → 轮询 → result/report）。
 
 `kb index` / `kb inspect` / `check` / `eval` 均可用。`eval` 在任一 `human_verdict` 为空时仍会以退出码 3 拒绝运行。
 
@@ -140,6 +142,65 @@ reviewpilot check examples/demo-article.md --kb kb/demo --out runs
 ```
 
 `examples/demo-article.md` 故意包含四类内容：可被 KB 支持的主张、与 KB 明确冲突的主张、KB 未覆盖的主张、以及一条主观观点。运行后查看 `runs/<run_id>/report.md`；存在冲突时退出码为 2。
+
+## Web API 与前端（v2，0.2.2）
+
+v2 提供 FastAPI 后端和 React / TypeScript / Vite 前端，复用同一判定引擎；CLI 行为不变。
+
+### 启动
+
+```powershell
+pip install -e ".[dev,api]"
+npm --prefix web install
+npm --prefix web run build
+reviewpilot-api
+# 打开 http://127.0.0.1:8000
+```
+
+开发模式：
+
+```powershell
+reviewpilot-api                 # 后端 :8000
+npm --prefix web run dev        # 前端 :5173，/api 代理到 :8000
+```
+
+如果 `web/dist` 不存在，FastAPI 仍可运行，根路径会提示先构建前端；API 文档在 `/docs`。
+
+### 工作方式
+
+- 前端只上传文章文本；知识库从服务端 `kb/` 白名单中选择，不能传任意路径。
+- 后端单进程作业队列，一次只跑一个核验；每个作业内部并发默认 4。
+- API Key 只在服务端 `.env`，不会下发到浏览器。
+- 作业完成后可查看逐条结论、证据和未核验内容，并下载 `result.json` / `report.md`。
+- 作业状态保存在内存中，完成后结果落在 `runs/`；重启服务后历史作业列表会清空，但磁盘结果仍在。
+
+### 环境变量
+
+| 变量 | 默认 | 说明 |
+|---|---|---|
+| `REVIEWPILOT_KB_ROOT` | `kb` | 扫描子目录中的 manifest |
+| `REVIEWPILOT_RUNS_DIR` | `runs` | 作业输入与结果目录 |
+| `REVIEWPILOT_WEB_DIST` | `web/dist` | 构建后的前端 |
+| `REVIEWPILOT_HOST` / `REVIEWPILOT_PORT` | `127.0.0.1` / `8000` | 监听地址 |
+| `DEEPSEEK_API_KEY` | — | 服务端模型 Key |
+| `DEEPSEEK_BASE_URL` | `https://api.deepseek.com` | 可选 API 地址 |
+
+### API
+
+| 方法 | 路径 | 用途 |
+|---|---|---|
+| GET | `/api/health` | 版本、模型、Key 是否配置 |
+| GET | `/api/kbs` | KB 列表、敏感级别、索引状态 |
+| POST | `/api/kbs/{id}/index` | 重建 KB 索引 |
+| POST | `/api/checks` | 提交核验（`article_text` / `article_name` / `kb` / `allow_confidential`） |
+| GET | `/api/jobs/{id}` | 作业状态与摘要 |
+| GET | `/api/jobs/{id}/result` | 完整 `result.json` |
+| GET | `/api/jobs/{id}/report` | `report.md` |
+| GET | `/docs` | OpenAPI 文档 |
+
+### 安全边界
+
+默认只监听 `127.0.0.1`，没有账号体系，**不要直接暴露到公网**。文章全文与检索片段会发送到 DeepSeek；`internal` / `confidential` KB 必须在前端显式勾选允许云端。作业输入副本始终保存在本地 `runs/`（API 暂未提供 `--no-store-article` 等价开关）。
 
 ## 知识库格式
 
@@ -233,7 +294,7 @@ report:
     "kb": {"name": "python-http-demo", "version": "2026.11", "manifest_sha256": "…"},
     "models": {"judge": "deepseek-v4-pro", "verifier": "deepseek-v4-pro", "judge_effort": "none", "verifier_effort": "low"},
     "prompt_version": "2026-11-15.1",
-    "code_version": "0.1.0"
+    "code_version": "0.2.2"
   },
   "summary": {"claims_total": 42, "supported": 18, "conflict": 3, "uncertain": 21, "unverified": 7},
   "sentences": [
@@ -383,7 +444,7 @@ reviewpilot eval --gold eval/gold --kb kb/demo
 | 版本 | 内容 |
 |---|---|
 | v0.1.0 | 200 条门槛通过；wheel/sdist 已发布 |
-| v2 | FastAPI 后端 + TypeScript 前端；可选本地 embedding/向量库；按需引入 LangChain；provider 抽象扩展到本地模型 |
+| v0.2.2 | FastAPI 后端 + React / TypeScript 前端已完成；可选 embedding/向量库与 LangChain 仍按需引入 |
 | 后续 | PDF/DOCX、HTML 文档站抓取、多跳综合、CI 门禁模式、英文报告 |
 
 ## 架构决策记录（ADR）
@@ -402,19 +463,23 @@ reviewpilot eval --gold eval/gold --kb kb/demo
 | [0010](docs/adr/0010-evaluation-gate.md) | 评测门槛：假支持数 = 0 |
 | [0011](docs/adr/0011-privacy-provider-boundary.md) | 隐私边界与 provider 抽象 |
 | [0012](docs/adr/0012-output-contract.md) | 输出契约与退出码 |
+| [0013](docs/adr/0013-web-api-job-model.md) | Web API 边界与单进程作业模型 |
+| [0014](docs/adr/0014-frontend-contract.md) | 前端技术栈与结果展示契约 |
 
 ## 开发
 
 ```text
 ReviewPilot/
-├── src/reviewpilot/   # 判定引擎与 CLI
-├── tests/             # pytest，默认不触网
-├── docs/adr/          # 12 篇架构决策记录
-├── docs/eval/         # 归档的评测报告
-├── eval/gold/         # 60 条人工盲标金标
-├── examples/          # 可复现的 demo 文章
-├── scripts/           # 盲标与标注表生成脚本
-├── kb/demo/           # 示例知识库
+├── src/reviewpilot/       # 判定引擎与 CLI
+├── src/reviewpilot_api/   # FastAPI 后端、作业队列、KB registry
+├── web/                   # React + TypeScript + Vite 前端
+├── tests/                 # pytest，默认不触网
+├── docs/adr/              # 14 篇架构决策记录
+├── docs/eval/             # 归档的评测报告
+├── eval/gold/             # 200 条人工盲标金标
+├── examples/              # 可复现的 demo 文章
+├── scripts/               # 盲标与标注表生成脚本
+├── kb/demo/               # 示例知识库
 ├── pyproject.toml
 ├── CHANGELOG.md
 └── README.md
@@ -434,6 +499,17 @@ src/reviewpilot/
 ├── retrieve/        # 查询构造（预留）
 ├── judge/           # 判定、独立校验、三道闸门
 └── report/          # result.json / report.md / trace
+
+src/reviewpilot_api/
+├── main.py          # FastAPI 应用与路由
+├── jobs.py          # 单进程作业队列
+├── registry.py      # KB 白名单扫描与索引
+└── schemas.py       # HTTP 请求/响应模型
+
+web/
+├── src/             # React 页面、API 客户端与样式
+├── dist/            # 构建产物（由 FastAPI 托管；不提交）
+└── package.json
 ```
 
 ## 九、其他文档
