@@ -2,7 +2,10 @@
 
 > 输入一篇 AI 写的技术文章，输出逐句核验结论：每条可判定的主张，要么有知识库证据支撑，要么明确标成存疑。不替模型猜，也不让模型凭内部知识给结论。
 
-**当前状态：v0.2.2。** CLI（`kb index` / `kb inspect` / `check` / `eval`）与 Web API / React + TypeScript 前端均可用：manifest 校验、Markdown/HTML/TXT 解析、结构感知切块、SQLite FTS5 + jieba 索引、主张抽取与逐字锚定、单跳证据判定、三道闸门、`result.json` / `report.md` / `trace.jsonl`。M3 的 60 条与 v0.1 的 200 条评测均通过；v2 的 FastAPI 后端与前端联调、wheel/sdist 打包与全新 venv 验证已完成。结果见下文与 [v0.1 评测记录](docs/eval/v0.1.0-2026-11-15.md)。
+**当前状态：v0.2.2。** CLI（`kb index` / `kb inspect` / `check` / `eval`）与 Web API / React + TypeScript 前端均可用； 
+能力覆盖manifest 校验、Markdown/HTML/TXT 解析、结构感知切块、SQLite FTS5 + jieba 索引、主张抽取与逐字锚定、单跳证据判定、三道闸门、`result.json` / `report.md` / `trace.jsonl`。
+M3 的 60 条与 v0.1 的 200 条评测均通过；
+v2 的 FastAPI 后端与前端联调、wheel/sdist 打包与全新 venv 验证已完成。结果见下文与 [v0.1 评测记录](docs/eval/v0.1.0-2026-11-15.md)。
 
 ## 它保证什么
 
@@ -48,7 +51,7 @@ article.md
 
 ## 技术栈
 
-### v1（当前版本）
+### v1
 
 | 层 | 选型 | 说明 |
 |---|---|---|
@@ -60,7 +63,7 @@ article.md
 | 模型 | DeepSeek Responses API（openai SDK） | `deepseek-v4-pro` 判定/校验，`deepseek-flash` 抽取/检索式 |
 | 测试 | pytest + respx | 单元测试不触网；respx mock HTTP |
 
-### v2（0.2.2，已完成）
+### v2
 
 - FastAPI 后端 + React / TypeScript / Vite 前端，复用同一判定引擎。
 - 单进程作业队列、KB 白名单、默认只监听 `127.0.0.1`。
